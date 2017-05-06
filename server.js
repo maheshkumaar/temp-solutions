@@ -33,7 +33,7 @@ var pool=new Pool(config);
 
 app.get("/",function(req,res){
     
-    if(req.session && req.session.auth && req,session.auth.userId){
+    if(req.session && req.session.auth && req.session.auth.userId){
         
        res.status(200).sendFile(path.join(__dirname,"categories2.html")); 
         
