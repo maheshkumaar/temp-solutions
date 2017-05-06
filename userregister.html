@@ -251,7 +251,9 @@
                                             
                                             $("#errorMessage").addClass("alert-success");
                                             
-                                            $("#errorMessage").html("Registered successfully. Login to proceed.")
+                                            $("#errorMessage").html("Registered successfully. Login to proceed.");
+                                            
+                                            $("#registerBtn").html("Success");
                                             
                                         },
                                         
@@ -262,6 +264,8 @@
                                             $("#errorMessage").addClass("alert-danger");
                                             
                                             $("#errorMessage").html("An unexpected error occurred. Try again later.");
+                                            
+                                            $("#registerBtn").html("Register");
                                             
                                         }
                                         

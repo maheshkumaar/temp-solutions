@@ -1103,7 +1103,7 @@ app.post("/register-user",function(req,res){
     var address=req.body.address;
     var salt=crypto.randomBytes(16).toString('hex');
     var encryptedPwd=hash(pwd,salt);
-    var companyname="";
+    var companyname=" ";
     var type="U";
     
     pool.query("INSERT INTO login_details(name,shopname,mailid,password,address,type) VALUES($1,$2,$3,$4,$5,$6)",[name,companyname,mailid,encryptedPwd,address,type],function(err,result){
