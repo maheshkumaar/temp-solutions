@@ -336,7 +336,7 @@ app.get("/wardrobe.jpg",function(req,res){
 
 app.get("/image1.png",function(req,res){
     
-   res.status(200).sendFile(path.join(__dirname,"image1.png")); 
+   res.status(200).sendFile(path.join(__dirname,"Images","image1.png")); 
     
 });
 
@@ -1181,7 +1181,7 @@ app.post("/check-login",function(req,res){
     
 });
 
-io.socket.on('connection',function(socket){
+io.on('connection',function(socket){
     
    socket.on("new message",function(data){
        
