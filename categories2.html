@@ -1,0 +1,383 @@
+<html>
+
+    <head>
+    
+        <title>Category List</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        
+        <script src="jquery.min.js"></script>
+        
+        <script src="/socket.io/socket.io.js"></script>
+        
+        <style type="text/css">
+        
+            #siteTitle{
+                
+                font-family:'Pacifico', cursive;
+                color:lightgrey;
+                padding-left: 4px;
+                
+            }
+                        
+            .jumbotron{
+                
+                background-image: url(bgi.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                min-height:91%;
+                
+            }
+			#chatBtn{
+                
+                position: fixed;
+                top: 10px;
+                right:10px;
+                
+            }
+            
+            textarea{
+                
+                resize: none;
+                width:40%;
+                border: 1px solid black;
+                 
+                
+            }
+            
+            #sendMessage{
+                
+                width:45px;
+                height:45px;
+                border-radius: 50%;
+                color: white;
+                
+            }
+            
+            .modal-body{
+                
+                min-height:50%;
+            }
+            
+            .user{
+                
+                background-color: lightgreen;
+                display: block;
+                padding: 6px;
+                border-radius: 4px;
+                margin-top: 4px;
+                margin-bottom: 4px;
+                float: left;
+            }
+            
+            .customercare{
+                
+                background-color: lightgrey;
+                display: block;
+                padding: 3px;
+                border-radius: 4px;
+                margin-top:4px;
+                margin-bottom: 4px;
+                float: right;
+                
+            }
+            
+            .clear{
+                
+                clear: both;
+                
+            }
+                   
+            .messages{
+                
+                list-style-type: none;
+                overflow-y: auto;
+                margin-left: 5px;
+            }
+            
+            .chatSendRow{
+                
+                position: fixed;
+                bottom: 10px;
+                width: 100%;
+                
+            }
+            
+            .chatSend{
+                
+                padding-top: 10px;
+                
+            }
+           
+        
+        </style>
+		
+    </head>
+    
+    <body>
+    
+        <nav class="navbar navbar-light bg-inverse">
+  
+            <a class="navbar-brand" href="#">
+    
+                <img src="logo2.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+    
+                <span id="siteTitle">Temp $olutions</span>
+				 
+  
+            </a>
+
+        </nav>
+        
+        <div class="jumbotron jumbotron-fluid">
+  
+            <div class="container">
+                
+                <div class="row">
+                
+                    <div class="col-md-4">
+                    
+                        <div class="card" style="width: 20rem;">
+  
+                            <img class="card-img-top" src="occasion.jpg" id="occasion" width="100%" height="30%" alt="Card image cap">
+  
+                                <div class="card-block">
+    
+                                    <h4 class="card-title">Occasions</h4>
+    
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+                                    
+  
+                                </div>
+
+                            </div>
+
+                        </div>
+                
+                        <div class="col-md-4">
+                    
+                            <div class="card" style="width: 20rem;">
+  
+                                <img class="card-img-top" src="book.jpg" id="book" width="100%" height="30%" alt="Card image cap">
+  
+                                    <div class="card-block">
+    
+                                        <h4 class="card-title">Books</h4>
+    
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+                                        
+  
+                                    </div>
+
+                                </div>    
+                    
+                            </div>
+                    
+                            <div class="col-md-4">
+                    
+                                <div class="card" style="width: 20rem;">
+  
+                                    <img class="card-img-top" src="automobiles.jpg" id="automobiles" width="100%" height="30%" alt="Card image cap">
+  
+                                    <div class="card-block">
+    
+                                        <h4 class="card-title">Automobiles</h4>
+    
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+                                        
+  
+                                    </div>
+
+                                </div>
+                    
+                            </div>
+    
+                        </div>
+						<br>
+						<br>
+						<br>
+						<div class="row">
+                
+                    <div class="col-md-4">
+                    
+                        <div class="card" style="width: 20rem;">
+  
+                            <img class="card-img-top" src="electronics.jpg" id="electronics"width="100%" height="30%" alt="Card image cap">
+  
+                                <div class="card-block">
+    
+                                    <h4 class="card-title">Electronics</h4>
+    
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+                                    
+  
+                                </div>
+
+                            </div>
+
+                        </div>
+                
+                        <div class="col-md-8">
+                    
+                            <div class="card" style="width: 20rem;">
+  
+                                <img class="card-img-top" src="furniture.jpg" id="furniture" width="100%" height="30%" alt="Card image cap">
+  
+                                    <div class="card-block">
+    
+                                        <h4 class="card-title">Furnitures</h4>
+    
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+                                        
+  
+                                    </div>
+
+                                </div>    
+                    
+                            </div>
+                    
+                            
+    
+                        </div>
+                
+                    </div>
+            
+                </div>
+				
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#chatScreen" id="chatBtn">
+  
+            <span class="glyphicons glyphicons-message-plus">&#xe125;</span>
+
+        </button>
+
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="chatScreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+            <div class="modal-dialog" role="document">
+    
+                <div class="modal-content">
+      
+                    <div class="modal-header">
+        
+                        <h5 class="modal-title" id="exampleModalLabel">User Helpline</h5>
+        
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          
+                            <span aria-hidden="true">&times;</span>
+        
+                        </button>
+      
+                    </div>
+      
+                    <div class="modal-body">
+        
+                        <ul class="messages">
+                        
+                        
+                        </ul>
+                        
+                        <div class="row chatSendRow" >
+                        
+                            <div class="col-md-10"><textarea id="userMessage" class="form-control" rows=3></textarea></div>
+                            
+                            <div class="col-md-2 chatSend"><button type="button" id="sendMessage" class="btn-success"><span class="glyphicons glyphicons-ok">&#xe207;</span></button></div>
+                        
+                        </div>
+                        
+                    </div>
+    
+                </div>
+  
+            </div>
+
+        </div>
+        
+        <script type="text/javascript">
+			$(document).ready(function()
+			{
+				$("#occasion").click(function()
+				{
+					window.location.href="occasionproductlist.html";
+				});
+			});
+			$(document).ready(function()
+			{
+				$("#book").click(function()
+				{
+					window.location.href="bookproductlist.html";
+				});
+			});
+			$(document).ready(function()
+			{
+				$("#automobiles").click(function()
+				{
+					window.location.href="automobileproductlist.html";
+				});
+			});
+			$(document).ready(function()
+			{
+				$("#furniture").click(function()
+				{
+					window.location.href="furnitureproductlist.html";
+				});
+			});
+			$(document).ready(function()
+			{
+				$("#electronics").click(function()
+				{
+					window.location.href="electronicsproductlist.html";
+				});
+			});
+			
+			var contentData = "";
+            
+            var socket=io();
+        
+         $("#sendMessage").click(function(){
+             
+             
+             
+                var msg = $("#userMessage").val();
+             
+                 contentData += '<li class="user">' + msg + '</li><li class="clear"></li>';
+             
+                $(".messages").html(contentData);
+             
+                socket.emit("new message",msg);
+             
+                $("#userMessage").val("");
+             
+         });
+            
+            socket.on('server message',function(data){
+                
+               contentData += '<li class="customercare">' + data + '</li><li class="clear"></li>';
+                
+                $(".messages").html(contentData);
+                
+                $("#chatScreen").modal('show');
+                
+            });
+			
+		</script>	
+    
+        </body>
+
+</html>
