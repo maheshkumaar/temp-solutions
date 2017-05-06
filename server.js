@@ -342,7 +342,7 @@ app.get("/image1.png",function(req,res){
 
 app.get("/responsive1.html",function(req,res){
     
-   res.status(200).sendFile(path.join(__dirname,"responsive.html")); 
+   res.status(200).sendFile(path.join(__dirname,"responsive1.html")); 
     
 });
 
@@ -352,13 +352,13 @@ app.get("/embed1.html",function(req,res){
     
 });
 
-app.get("/19b006ddf155d96215237a626a959f909641b451d316/19b006ddf155d96215237a626a959f909641b451d316.html",function(req,res){
+app.get("/19b006ddf155d96215237a626a959f909641b451d316.html",function(req,res){
     
    res.status(200).sendFile(path.join(__dirname,"19b006ddf155d96215237a626a959f909641b451d316","19b006ddf155d96215237a626a959f909641b451d316.html")); 
     
 });
 
-app.get("/a9e506989705540c60913a9215af06613f6319478357/a9e506989705540c60913a9215af06613f6319478357.html",function(req,res){
+app.get("/a9e506989705540c60913a9215af06613f6319478357.html",function(req,res){
     
    res.status(200).sendFile(path.join(__dirname,"a9e506989705540c60913a9215af06613f6319478357","a9e506989705540c60913a9215af06613f6319478357.html")); 
     

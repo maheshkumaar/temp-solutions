@@ -199,7 +199,7 @@
                                $("#errorMessage").html("Address should not be empty.");
 
                                 
-                            }else if(regexName.test(name)){
+                            }else if(!regexName.test(name)){
                                 
                                 $("#errorMessage").removeClass("hidden");
                                 
@@ -208,7 +208,7 @@
                                $("#errorMessage").html("Enter a valid name.");
 
                                 
-                            }else if(emailRegex.test(email)){
+                            }else if(!emailRegex.test(email)){
                                 
                                 $("#errorMessage").removeClass("hidden");
                                 
