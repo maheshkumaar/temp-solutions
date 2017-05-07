@@ -195,9 +195,9 @@ app.get("/book2.jpg",function(req,res){
     
 });
 
-app.get("/book3.jpg",function(req,res){
+app.get("/book3.jpeg",function(req,res){
     
-   res.status(200).sendFile(path.join(__dirname,"Images","book3.jpg")); 
+   res.status(200).sendFile(path.join(__dirname,"Images","book3.jpeg")); 
     
 });
 
