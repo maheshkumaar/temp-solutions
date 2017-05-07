@@ -22,11 +22,11 @@ app.use(session({
 }));
 
 var config = {
-    user: 'qwznmrqcxlkzfg',
-    database: 'db0g8epr4bv08q',
-    host: 'ec2-184-73-199-72.compute-1.amazonaws.com',
+    user: 'adminofts',
+    database: 'tsdbforus',
+    host: 'http://tsdbforus.c3p0chgaf7g4.us-west-2.rds.amazonaws.com/',
     port: '5432',
-    password: '3e1064201c20a7223db83ab4f1905006564b15963d5c4acada97c4ebbdeab1f3'
+    password: 'tempsoln10'
 };
 
 var pool=new Pool(config);
