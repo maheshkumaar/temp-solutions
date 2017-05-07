@@ -1306,6 +1306,11 @@ app.get("/response.html",function(req,res){
     
 });
 
+app.get("/productBackground.png",function(req,res){
+   
+    res.status(200).sendFile(path.join(__dirname,"Images","productBackground.png"));
+    
+});
 
 var port = process.env.PORT || 8000;
 
