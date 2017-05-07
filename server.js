@@ -25,7 +25,7 @@ var config = {
     user: 'qwznmrqcxlkzfg',
     database: 'db0g8epr4bv08q',
     host: 'ec2-184-73-199-72.compute-1.amazonaws.com',
-    port: 5432,
+    port: '5432',
     password: '3e1064201c20a7223db83ab4f1905006564b15963d5c4acada97c4ebbdeab1f3'
 };
 
@@ -1081,7 +1081,7 @@ app.post("/login",function(req,res){
               if(hashedPassword===dbString){
                   
                   req.session.auth={userId:result.rows[0].id};
-                  res.status(200).send('Logged in successfully!');
+                  res.status(200).send(JSON.stringify({'usertype':result.rows[0].type}));
                   
               }else{
                   
@@ -1190,6 +1190,122 @@ io.on('connection',function(socket){
    }) ;
     
 });
+
+app.get("/bike1description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"bike1description.html")); 
+    
+});
+
+app.get("/bike2description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"bike2decription.html")); 
+    
+});
+
+app.get("/book1description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"book1description.html")); 
+    
+});
+
+
+app.get("/book2description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"book2description.html")); 
+    
+});
+
+app.get("/book3description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"book3description.html")); 
+    
+});
+
+app.get("/car1description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"car1description.html")); 
+    
+});
+
+app.get("/car2description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"car2description.html")); 
+    
+});
+
+app.get("/cycle1Description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"cycle1Description.html")); 
+    
+});
+
+app.get("/cycle2description.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"cycle2description.html")); 
+    
+});
+
+app.get("/electronics1descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"electronics1descriptionlist.html")); 
+    
+});
+
+app.get("/electronics2descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"electronics2descriptionlist.html")); 
+    
+});
+
+app.get("/electronics3descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"electronics3descriptionlist.html")); 
+    
+});
+
+app.get("/furniture1descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"furniture1descriptionlist.html")); 
+    
+});
+
+app.get("/furniture2descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"furniture2descriptionlist.html")); 
+    
+});
+
+app.get("/furniture3descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"furniture3descriptionlist.html")); 
+    
+});
+
+app.get("/occasion1descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"occasion1descriptionlist.html")); 
+    
+});
+
+app.get("/occasion2descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"occasion2descriptionlist.html")); 
+    
+});
+
+app.get("/occasion3descriptionlist.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"occasion3descriptionlist.html")); 
+    
+});
+
+app.get("/response.html",function(req,res){
+    
+   res.status(200).sendFile(path.join(__dirname,"response.html")); 
+    
+});
+
 
 var port = process.env.PORT || 8000;
 

@@ -177,9 +177,14 @@
                                    
                                    statusCode:{
                                        
-                                       200:function(){
+                                       200:function(data){
                                            
-                                           window.location="categories2.html";
+                                           data=JSON.parse(data);
+                                           
+                                           if(data["usertype"]=="S")
+                                               window.location="response.html";
+                                           else if(data["usertype"]=="U")
+                                                window.location="categories2.html";
                                            
                                        },
                                        
