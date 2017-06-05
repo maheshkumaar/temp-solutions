@@ -153,29 +153,29 @@ ImgPath:"shoerack.jpg",
 
 }];
 
-// for(let i=0;i<products.length;++i){
-//
-//   let product = new Product(products[i]);
-//
-//   product.save().then(() => {
-//
-//     console.log("Inserted successfully");
-//
-//   }).catch((err) => {
-//
-//     console.log("Error");
-//
-//   });
-//
-//
-// }
-let category = "Occasion";
-Product.find({category}).then((docs) => {
+for(let i=0;i<products.length;++i){
 
-  console.log(docs);
+  let product = new Product(products[i]);
 
-}).catch((err) => {
+  product.save().then(() => {
 
-  console.log(err);
+    console.log("Inserted successfully");
 
-});
+  }).catch((err) => {
+
+    console.log("Error");
+
+  });
+
+
+}
+// let category = "Occasion";
+// Product.find({category}).then((docs) => {
+//
+//   console.log(docs);
+// 
+// }).catch((err) => {
+//
+//   console.log(err);
+//
+// });
