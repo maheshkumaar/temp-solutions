@@ -84,83 +84,6 @@
 
             }
 
-            textarea{
-
-                resize: none;
-                width:40%;
-                border: 1px solid black;
-
-
-            }
-
-            #sendMessage{
-
-                width:45px;
-                height:45px;
-                border-radius: 50%;
-                color: white;
-
-            }
-
-            .modal-body{
-
-                min-height:50%;
-            }
-
-            .user{
-
-                background-color: lightgreen;
-                display: block;
-                padding: 6px;
-                border-radius: 4px;
-                margin-top: 4px;
-                margin-bottom: 4px;
-                float: left;
-            }
-
-            .customercare{
-
-                background-color: lightgrey;
-                display: block;
-                padding: 3px;
-                border-radius: 4px;
-                margin-top:4px;
-                margin-bottom: 4px;
-                float: right;
-
-            }
-
-            .clear{
-
-                clear: both;
-
-            }
-
-
-            .messages{
-
-                list-style-type: none;
-                overflow-y: auto;
-                margin-left: 5px;
-
-            }
-
-            .chatSendRow{
-
-                position: relative;
-                top: 10px;
-                width: 100%;
-
-            }
-
-            .chatSend{
-
-                padding-top: 10px;
-
-            }
-
-
-
         </style>
 
     </head>
@@ -209,7 +132,7 @@
 
                     <h3>{{name}}</h3><br>
 
-                    <div class="d-md-flex">
+                    <div class="d-md-flex flex-column">
 
                         <div class="info"><b>About the product</b>:&nbsp;&nbsp;{{description}} </div><br>
 
@@ -218,53 +141,6 @@
                         <div class="info"><b>Cost of product</b>:&nbsp;&nbsp;Rs.{{rent}} </div><br>
 
                         <div class="info"><b>Period of rental</b>:&nbsp;&nbsp;{{period}} month(s). </div><br><br>
-
-                    </div>
-
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#chatScreen" id="chatBtn">
-
-					              Talk with owner
-
-					          </button><br><br>
-
-                    <div class="modal fade" id="chatScreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-                        <div class="modal-dialog" role="document">
-
-                            <div class="modal-content">
-
-                                <div class="modal-header">
-
-                                    <h5 class="modal-title" id="exampleModalLabel">User Name</h5>
-
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-                                        <span aria-hidden="true">&times;</span>
-
-                                    </button>
-
-                                </div>
-
-                                <div class="modal-body">
-
-                                   <ul class="messages">
-
-
-                                    </ul>
-
-                                    <div class="row chatSendRow" >
-
-                                        <div class="col-md-10"><textarea id="userMessage" class="form-control" rows=3></textarea></div>
-
-                                        <div class="col-md-2 chatSend"><button type="button" id="sendMessage" class="btn-success"><span class="glyphicons glyphicons-ok">&#xe207;</span></button></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
 
                     </div>
 
@@ -285,7 +161,7 @@
                 </div>
 
             </div>
-            
+
         </div>
 
         <script type="text/javascript">
@@ -368,30 +244,7 @@
 
               });
 
-              var contentData = "";
-
-              $("#chatScreen").on('shown.bs.modal',(e) =>{
-
-              $("#userMessage").val("");
-
-          });
-
-
-          $("#sendMessage").click(function(){
-
-              var msg = $("#userMessage").val();
-
-              contentData += '<li class="user">' + msg + '</li><li class="clear"></li>';
-
-              $(".messages").html(contentData);
-
-              $("#userMessage").val("");
-
-          });
-
-
-
-      });
+            });
 
 
         </script>
