@@ -4,11 +4,15 @@ var path = require('path');
 var bodyparser = require('body-parser');
 var crypto = require('crypto');
 var session = require('express-session');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var http = require('http');
+var socketIO = require('socket.io');
 var hbs = require('hbs');
 var multer = require('multer');
+
+var app = express();
+
+var server = http.createServer(app);
+var io = socketIO(server);
 
 var {User} = require('./models/User.js');
 var {mongoose} = require('./connection/mongoose.js');
@@ -60,6 +64,28 @@ hbs.registerHelper('display',(data,template) => {
     ret += "</div>"
 
     return ret;
+
+});
+
+io.on('connection',(socket) => {
+
+  socket.on('joinChatRoom',(data) => {
+
+    socket.join('customercare');
+
+  });
+
+  socket.on('newMessage',(message) => {
+
+    socket.broadcast.to('customercare').emit("serverMessage",message);
+
+  });
+
+  socket.on('disconnect',() => {
+
+    socket.leave('customercare');
+
+  });
 
 });
 
@@ -392,7 +418,7 @@ app.post("/rent-product",authenticate,(req,res) => {
 
 var port = process.env.PORT || 8000;
 
-http.listen(port , function(){
+server.listen(port , function(){
 
    console.log("Server listening at port " + port);
 

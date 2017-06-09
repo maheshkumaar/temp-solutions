@@ -20,6 +20,8 @@
 
         <script src="jquery.min.js"></script>
 
+        <script src="/socket.io/socket.io.js"></script>
+
         <style type="text/css">
 
             #siteTitle{
@@ -96,6 +98,7 @@
                 border-radius: 4px;
                 margin-top: 4px;
                 margin-bottom: 4px;
+                margin-right: 4px;
                 float: left;
             }
 
@@ -107,6 +110,8 @@
                 border-radius: 4px;
                 margin-top:4px;
                 margin-bottom: 4px;
+                margin-left: 4px;
+                margin-right: 8px;
                 float: right;
 
             }
@@ -239,6 +244,8 @@
 
         <script type="text/javascript">
 
+        var socket = io();
+
           function loadSection(){
 
             $.ajax({
@@ -273,6 +280,47 @@
             loadSection();
 
           });
+
+          socket.on('connect',function(){
+
+            socket.emit('joinChatRoom',"I want to join the chat room.");
+
+          });
+
+          $("#sendMessage").click(function(){
+
+            var msg = $("#userMessage").val();
+
+            socket.emit("newMessage",msg);
+
+            var str = `<li class="user">${msg}</li><li class="clear"></li>`;
+
+            $(".messages").append(str);
+
+            $("#userMessage").val("");
+
+          });
+
+          socket.on("serverMessage",function(data){
+
+            var str = `<li class="customercare">${data}</li><li class="clear"></li>`;
+
+            $(".messages").append(str);
+
+            $("#chatBtn").removeClass("btn-primary");
+
+            $("#chatBtn").addClass("btn-danger");
+
+          });
+
+          $("#chatBtn").click(function(){
+
+              $(this).removeClass("btn-danger");
+
+              $(this).addClass("btn-primary");
+
+          });
+
 
         </script>
 
